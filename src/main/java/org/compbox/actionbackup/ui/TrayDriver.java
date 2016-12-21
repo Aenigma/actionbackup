@@ -36,6 +36,10 @@ public class TrayDriver {
         final BackupService bs = BackupService.performSetup(tish
                 .hookableFactory());
 
+        if (bs == null) {
+            return;
+        }
+
         final SystemTray tray = SystemTray.getSystemTray();
         final PopupMenu popupmenu = new PopupMenu("Tray Menu");
         final TrayIcon trayIcon = tish.getTrayIcon();
